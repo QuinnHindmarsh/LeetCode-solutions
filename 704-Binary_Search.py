@@ -51,7 +51,7 @@ class Solution:
         return -1
 
 
-# Solution three - cheating, recurisve O(log n) time O(log n) space
+# Solution three - cheating, O(log n) time O(1) space
 class Solution:
     def search(self, nums: List[int], tar: int) -> int:
         i = bisect_left(nums, tar)
