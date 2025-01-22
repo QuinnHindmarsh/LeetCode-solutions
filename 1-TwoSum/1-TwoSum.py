@@ -1,12 +1,14 @@
-# Solution three - O(n) time and o(n) space - one O(n) itteration
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        vals = {}
-
-        # For each number, it checks if the complment is in the hashmap already - if not it adds it
-        for i in range(len(nums)):
-            complement = target - nums[i]
-            if complement in vals:
-                return [i, vals[complement]]
-
-            vals[nums[i]] = i
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        h = {}
+        for i, num in enumerate(nums):
+            n = target - num
+            if n not in h:
+                h[num] = i
+            else:
+                return [h[n], i]
