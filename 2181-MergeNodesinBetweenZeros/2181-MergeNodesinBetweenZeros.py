@@ -13,7 +13,6 @@ class Solution:
                     # Deletes the node it just added to the last one
                     node.next = node.next.next
             else:
-                print(123123)
                 node = node.next
 
         # Removes the last node, which is always a zero
