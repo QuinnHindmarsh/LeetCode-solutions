@@ -6,6 +6,7 @@ class Solution:
         q.append((0,0))
         seen = set()
 
+        # I can do this with 2 maps but i cant be fucked, just wanted to speedrun it
         while q:
             i,j = q.popleft()
             v = grid[i][j]
