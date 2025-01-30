@@ -10,20 +10,8 @@ class Solution:
         b = headB
         aflag = bflag = False
 
-        while a and b:
-            if a == b:
-                return a
-            
-            if a.next == None and not aflag:
-                aflag = True
-                a = headB
-            else:
-                a = a.next
-            
-            if b.next == None and not bflag:
-                bflag = True
-                b = headA
-            else:
-                b = b.next
+        while a != b:
+            a = a.next if a else headB
+            b = b.next if b else headA
 
-        return None
+        return a
