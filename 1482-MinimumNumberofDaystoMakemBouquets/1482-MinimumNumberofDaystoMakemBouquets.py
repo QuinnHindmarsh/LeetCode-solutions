@@ -19,15 +19,18 @@ class Solution:
 
             return cnt >= m
 
-        def bin_search(l,h):
-            if not l < h:
-                return l
-            mid = (l+h) // 2
+        def bin_search():
+            l = 0
+            r = max(bloomDay)
 
-            if verify(mid):
-                h = mid
-            else:
-                l = mid + 1
-            return bin_search(l,h)
+            while l < r:
+                mid = l + ((r-l) // 2)
 
-        return bin_search(min(bloomDay),max(bloomDay))
+                if verify(mid):
+                    r = mid
+                else:
+                    l = mid + 1
+            
+            return l
+
+        return bin_search()
