@@ -29,9 +29,6 @@ class Solution:
             if num == 1: return 0
             if num == 2: return 2
 
-            if num % 2 == 0:
-                return 2 + steps(num//2)
-
             gpd = GPD(num)
             if gpd == 1:
                 return num 
