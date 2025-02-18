@@ -24,14 +24,9 @@ class Solution {
     public void traverse(TreeNode node, List<Integer> order){
             if (node == null) return;
 
-            if (node.left != null){
-                traverse(node.left, order);
-            }
+            traverse(node.left, order);
             order.add(node.val);
-
-            if (node.right != null){
-                traverse(node.right, order);
-            }
+            traverse(node.right, order);
             
     }
     
