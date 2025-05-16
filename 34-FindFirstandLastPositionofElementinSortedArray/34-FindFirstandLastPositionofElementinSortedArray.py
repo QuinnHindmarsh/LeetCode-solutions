@@ -1,4 +1,4 @@
-# Last updated: 16/05/2025, 15:29:37
+# Last updated: 16/05/2025, 15:49:03
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         
