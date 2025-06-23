@@ -1,23 +1,26 @@
+# Last updated: 23/06/2025, 17:39:13
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution:    
+class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        q = deque()
         ans = []
+        q.append((root, 0))
 
-        def traverse(node, level):
-            if level == len(ans):
+        while q:
+            node, layer = q.popleft()
+
+            if not node:
+                continue
+
+            if len(ans) == layer:
                 ans.append(node.val)
             
-            if node.right:
-                traverse(node.right, level +1)
-            
-            if node.left:
-                traverse(node.left, level +1)
+            q.append((node.right, layer +1))
+            q.append((node.left, layer+1))
         
-        if root:
-            traverse(root,0)
-        return ans 
+        return ans
