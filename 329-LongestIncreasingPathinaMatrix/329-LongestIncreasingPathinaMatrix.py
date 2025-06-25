@@ -1,4 +1,4 @@
-# Last updated: 25/06/2025, 15:36:02
+# Last updated: 25/06/2025, 15:36:31
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
         self.n = len(matrix)
