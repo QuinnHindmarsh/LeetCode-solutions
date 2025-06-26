@@ -1,4 +1,4 @@
-# Last updated: 26/06/2025, 16:10:01
+# Last updated: 26/06/2025, 16:11:06
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         ans = []
@@ -7,7 +7,7 @@ class Solution:
 
         def dfs():
             if len(state) == len(nums):
-                ans.append(state[:])
+                ans.append(deepcopy(state))
                 return
 
             for i in range(len(nums)):
