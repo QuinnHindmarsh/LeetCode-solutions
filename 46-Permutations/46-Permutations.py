@@ -1,0 +1,24 @@
+# Last updated: 26/06/2025, 16:10:01
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        used = [False] * len(nums)
+        state = []
+
+        def dfs():
+            if len(state) == len(nums):
+                ans.append(state[:])
+                return
+
+            for i in range(len(nums)):
+                if used[i]:
+                    continue
+
+                used[i] = True
+                state.append(nums[i])
+                dfs()
+                state.pop()
+                used[i] = False
+
+        dfs()
+        return ans
