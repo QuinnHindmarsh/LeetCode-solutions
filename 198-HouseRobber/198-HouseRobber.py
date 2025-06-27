@@ -1,12 +1,20 @@
+# Last updated: 27/06/2025, 15:36:09
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        prev = maxRob = 0
+        memo = {}
 
-        # For each house it sees if you are best off robbing i-2 + the current one, or i-1
-        for house in nums:
-            temp = maxRob
-            maxRob = max(maxRob, prev + house)
-            prev = temp
-        
-        return maxRob
+        def dp(i):
+            if i >= len(nums):
+                return 0
 
+            if i in memo:
+                return memo[i]
+
+            mx = max(0, max(dp(i+2), dp(i+3)) + nums[i])
+
+            mx = max(mx, dp(i+1), dp(i+2))
+            
+            memo[i] = mx
+            return memo[i]
+
+        return max(dp(0), dp(1))
