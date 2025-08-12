@@ -1,29 +1,13 @@
-# Last updated: 30/06/2025, 14:03:34
+# Last updated: 12/08/2025, 18:02:51
 class Solution:
-    def longestPalindrome(self, s: str) -> str:
-        n = len(s)
+    def divisibilityArray(self, word: str, m: int) -> List[int]:
+        ans = []
+        rem = 0
 
-        dp = [[False] *n for _ in range(n)]
+        for i in range(len(word)):
+            rem *= 10
+            rem += int(word[i])
+            rem %= m
 
-        max_len = 1
-        start_index = 0
-
-        for i in range(n):
-            dp[i][i] = True
-
-        for i in range(n-1):
-            if s[i] == s[i+1]:
-                dp[i][i+1] = True
-                max_len = 2
-                start_index = i
-
-        for substring_len in range(3, n+1):
-            for i in range(n-substring_len +1):
-                j = i + substring_len -1
-
-                if s[i] == s[j] and dp[i+1][j-1]:
-                    dp[i][j] = True
-                    max_len = substring_len
-                    start_index = i
-        
-        return s[start_index: start_index + max_len]
+            ans.append(1 if rem == 0 else 0)
+        return ans
