@@ -1,31 +1,21 @@
-# Last updated: 17/08/2025, 11:41:04
+# Last updated: 17/08/2025, 12:10:46
 class Solution:
-    def executeInstructions(self, n: int, startPos: List[int], s: str) -> List[int]:
-        def valid(x,y):
-            return 0 <= x < n and 0 <= y < n
-        
-        ans = []
-        moves = {'U':[-1,0], 'D':[1,0], 'L':[0,-1],'R':[0,1]}
+    def minimumArea(self, grid: List[List[int]]) -> int:
+        r = len(grid)
+        c = len(grid[0])
 
-        for i in range(len(s)):
-            mx = 0
-            r,c = startPos
+        t = r
+        b = 0 
+        l = c
+        r = 0 
 
-            for j in range(i,len(s)):
-                move = moves[s[j]]
-                r += move[0]
-                c += move[1]
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == 1:
+                    t = min(t, i)
+                    b = max(b,i)
 
-                if not valid(r,c):
-                    break
-                mx += 1
-            
-            ans.append(mx)
+                    l = min(l, j)
+                    r = max(r,j)
 
-        return ans
-
-
-
-
-
-        
+        return (b - t + 1) * (r - l + 1)
