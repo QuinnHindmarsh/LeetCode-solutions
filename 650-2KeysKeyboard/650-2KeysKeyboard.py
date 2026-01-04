@@ -1,4 +1,4 @@
-# Last updated: 07/12/2025, 09:47:45
+# Last updated: 04/01/2026, 10:13:01
 1class Solution:
 2    def minSteps(self, n: int) -> int:
 3        ans = 0
@@ -26,7 +26,7 @@
 25                    return num // i
 26            return 1
 27
-28        def steps(num):
+28        def steps(num): 
 29            if num == 1: return 0
 30            if num == 2: return 2
 31
