@@ -1,21 +1,13 @@
-# Last updated: 06/04/2026, 10:36:31
+# Last updated: 06/04/2026, 11:22:38
 1class Solution:
-2    def findingUsersActiveMinutes(self, logs: List[List[int]], k: int) -> List[int]:
-3        users_minutes = defaultdict(int)
-4
-5        logs.sort()
-6
-7        for i in range(len(logs)): 
-8            if i > 0 and logs[i] == logs[i-1]: 
-9                continue 
-10            user_id, _minute = logs[i]
-11
-12            users_minutes[user_id]+=1
-13
-14        ans = [0] * k
-15
-16        for minutes in users_minutes.values(): 
-17            ans[minutes-1] +=1
-18
-19        return ans
-20
+2    def longestSubsequence(self, nums: List[int]) -> int:
+3        if sum(nums) == 0: 
+4            return 0
+5
+6        running_xor = 0
+7        for num in nums: 
+8            running_xor ^= num
+9
+10        if running_xor == 0: 
+11            return len(nums) -1
+12        return len(nums)
