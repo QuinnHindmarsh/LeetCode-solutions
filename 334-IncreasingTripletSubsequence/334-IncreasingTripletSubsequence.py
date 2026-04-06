@@ -1,4 +1,4 @@
-# Last updated: 06/04/2026, 15:57:39
+# Last updated: 06/04/2026, 16:01:23
 1class Solution:
 2    def increasingTriplet(self, nums: List[int]) -> bool:
 3        mn1 = mn2 = float('inf')
