@@ -1,14 +1,9 @@
-# Last updated: 06/04/2026, 16:01:23
+# Last updated: 06/04/2026, 16:18:16
 1class Solution:
-2    def increasingTriplet(self, nums: List[int]) -> bool:
-3        mn1 = mn2 = float('inf')
-4
-5        for num in nums: 
-6            if num > mn2: 
-7                return True
-8
-9            if num < mn2 and num > mn1: 
-10                mn2 = num 
-11            elif num <mn1: 
-12                mn1 = num 
-13        return False
+2    def isIdealPermutation(self, nums: List[int]) -> bool:
+3        mx = 0
+4        for i in range(len(nums) - 2):
+5            mx = max(mx, nums[i])
+6            if mx > nums[i + 2]:
+7                return False
+8        return True
