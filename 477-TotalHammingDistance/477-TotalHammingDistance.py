@@ -1,4 +1,4 @@
-# Last updated: 27/06/2026, 16:03:21
+# Last updated: 27/06/2026, 16:03:25
 1class Solution:
 2    def totalHammingDistance(self, nums: List[int]) -> int:
 3        count = [0] * len(bin(max(nums))[2::])
